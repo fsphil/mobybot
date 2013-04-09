@@ -161,10 +161,10 @@ try:
 					lat = r['data']['latitude']
 					lng = r['data']['longitude']
 					int_temp = r['data']['temperature_internal']
+					battery = r['data']['battery']
 					sentence = r['data']['sentence_id']
 					
-					irc.msg('#sealevel', 'New Position: %.05f, %.05f Altitude: %.02f Internal Temperature: %.02f' % (lat, lng, alt, int_temp))
-					irc.msg('#sealevel', 'https://maps.google.co.uk/maps?q=%%40%.05f,%.05f&z=8' % (lat, lng))
+					irc.msg('#sealevel', 'New Position: %.05f, %.05f Altitude: %.02f Internal Temp: %.02f Battery: %.02fv - http://track.poseidon.sgsphysics.co.uk/' % (lat, lng, alt, int_temp, battery))
 		
 		s = irc.recv()
 		if s == False: continue
